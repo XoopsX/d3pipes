@@ -98,7 +98,7 @@ function d3pipes_common_get_default_joint_class( $mydirname , $joint_type )
 			}
 		}
 	}
-	
+
 	return $ret ;
 }
 
@@ -147,7 +147,7 @@ function d3pipes_common_get_clipping( $mydirname , $clipping_id )
 {
 	require_once dirname(dirname(__FILE__)).'/joints/clip/D3pipesClipModuledb.class.php' ;
 
-	$clip_obj =& new D3pipesClipModuledb( $mydirname , 0 , '' ) ;
+	$clip_obj = new D3pipesClipModuledb( $mydirname , 0 , '' ) ;
 	return $clip_obj->getClipping( $clipping_id ) ;
 }
 
@@ -164,7 +164,7 @@ function d3pipes_common_get_joint_objects( $mydirname , $joint_type = '' )
 		if( substr( $file , -10 ) != '.class.php' ) continue ;
 		$class_name = substr( $file , 0 , -10 ) ;
 		require_once $type_base.'/'.$file ;
-		$ret[] =& new $class_name( $mydirname , 0 , '' ) ;
+		$ret[] = new $class_name( $mydirname , 0 , '' ) ;
 	}
 	return $ret ;
 }
@@ -174,7 +174,7 @@ function &d3pipes_common_get_joint_object_default( $mydirname , $joint_type , $o
 {
 	$class_name = 'D3pipes'.ucfirst($joint_type).ucfirst(d3pipes_common_get_default_joint_class( $mydirname , $joint_type )) ;
 	require_once dirname(dirname(__FILE__)).'/joints/'.$joint_type.'/'.$class_name.'.class.php' ;
-	$ret =& new $class_name( $mydirname , 0 , $option ) ;
+	$ret = new $class_name( $mydirname , 0 , $option ) ;
 	return $ret ;
 }
 
@@ -183,7 +183,7 @@ function &d3pipes_common_get_joint_object( $mydirname , $joint_type , $joint_cla
 {
 	$class_name = 'D3pipes'.ucfirst($joint_type).ucfirst($joint_class) ;
 	require_once dirname(dirname(__FILE__)).'/joints/'.$joint_type.'/'.$class_name.'.class.php' ;
-	$ret =& new $class_name( $mydirname , 0 , $option ) ;
+	$ret = new $class_name( $mydirname , 0 , $option ) ;
 	return $ret ;
 }
 
@@ -247,10 +247,19 @@ function d3pipes_common_fetch_entries( $mydirname , $pipe_row , $max_entries , &
 		$class_name = 'D3pipes'.ucfirst($joint['joint']).ucfirst($joint['joint_class']) ;
 		require_once $joints_dir.'/'.$joint['joint'].'/'.$class_name.'.class.php' ;
 		if( ! class_exists( $class_name ) ) die( 'Class '.$class_name.' does not exist' ) ;
+//COMENT by domifara for php5.2-
+/*
 		$obj =& new $class_name( $mydirname , $pipe_id , $joint['option'] ) ;
 		$obj->setModConfigs( $mod_configs ) ;
 		$obj->setStage( $stage ) ;
 		$objects[ $stage ] =& $obj ;
+		if( $obj->isCached() ) break ;
+*/
+//HACK by domifara for php5.3+
+		$obj = new $class_name( $mydirname , $pipe_id , $joint['option'] ) ;
+		$obj->setModConfigs( $mod_configs ) ;
+		$obj->setStage( $stage ) ;
+		$objects[ $stage ] = $obj ;
 		if( $obj->isCached() ) break ;
 	}
 

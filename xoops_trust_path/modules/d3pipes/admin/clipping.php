@@ -76,7 +76,7 @@ $selected_clippings = sizeof( $target_clipping_ids ) ;
 
 xoops_cp_header();
 include dirname(__FILE__).'/mymenu.php' ;
-$tpl =& new D3Tpl() ;
+$tpl = new D3Tpl() ;
 $tpl->assign( array(
 	'mydirname' => $mydirname ,
 	'mod_name' => $xoopsModule->getVar('name') ,

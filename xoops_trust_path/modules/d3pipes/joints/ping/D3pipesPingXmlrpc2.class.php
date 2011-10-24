@@ -44,7 +44,7 @@ class D3pipesPingXmlrpc2 extends D3pipesPingAbstract {
 
 	function getPingBodies()
 	{
-		$tpl =& new XoopsTpl() ;
+		$tpl = new XoopsTpl() ;
 		$tpl->assign( array(
 			'site_name' => d3pipes_common_convert_encoding_ietoutf8( $this->mydirname , $GLOBALS['xoopsConfig']['sitename'] ) ,
 			'site_url' => XOOPS_URL.'/' ,

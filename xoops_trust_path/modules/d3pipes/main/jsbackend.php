@@ -44,7 +44,7 @@ if( sizeof( $pipe_ids ) == 1 ) {
 
 // assign
 require_once XOOPS_TRUST_PATH.'/libs/altsys/class/D3Tpl.class.php' ;
-$xoopsTpl =& new D3Tpl() ;
+$xoopsTpl = new D3Tpl() ;
 $xoopsTpl->assign(
 	array(
 		'mydirname' => $mydirname ,

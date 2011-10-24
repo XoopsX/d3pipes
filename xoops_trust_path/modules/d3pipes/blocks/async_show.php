@@ -23,7 +23,7 @@ function b_d3pipes_async_show( $options )
 	// insert javascript if necessary
 	d3pipes_insert_javascript4async() ;
 
-	$block = array( 
+	$block = array(
 		'mydirname' => $mydirname ,
 		'mod_url' => XOOPS_URL.'/modules/'.$mydirname ,
 		'mod_imageurl' => XOOPS_URL.'/modules/'.$mydirname.'/'.$configs['images_dir'] ,
@@ -39,7 +39,7 @@ function b_d3pipes_async_show( $options )
 
 	if( empty( $options['disable_renderer'] ) ) {
 		require_once XOOPS_TRUST_PATH.'/libs/altsys/class/D3Tpl.class.php' ;
-		$tpl =& new D3Tpl() ;
+		$tpl = new D3Tpl() ;
 		$tpl->assign( 'block' , $block ) ;
 		$ret['content'] = $tpl->fetch( $this_template ) ;
 		return $ret ;
@@ -63,7 +63,7 @@ function d3pipes_insert_javascript4async()
 			script.setAttribute("charset", "'._CHARSET.'");
 			document.getElementsByTagName("head").item(0).appendChild(script);
 		}
-		
+
 		function d3pipes_insert_html( id , html )
 		{
 		  document.getElementById( id ).innerHTML = html ;

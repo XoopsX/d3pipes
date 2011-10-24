@@ -14,7 +14,7 @@
 # and returns an equivalent PHP data structure
 ###################################################################################
 function & XML_unserialize(&$xml){
-	$xml_parser = &new XML();
+	$xml_parser = new XML();
 	$data = &$xml_parser->parse($xml);
 	$xml_parser->destruct();
 	return $data;
@@ -59,7 +59,7 @@ class XML{
 	var $last_opened_tag; #keeps track of the last tag opened.
 
 	function XML(){
- 		// $this->parser = &xml_parser_create();
+		// $this->parser = &xml_parser_create();
  		$this->parser = xml_parser_create(); // GIJ
  		/*
 		xml_parser_set_option(&$this->parser, XML_OPTION_CASE_FOLDING, false);

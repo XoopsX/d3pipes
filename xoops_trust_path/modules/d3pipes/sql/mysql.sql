@@ -11,7 +11,7 @@ CREATE TABLE category_permissions (
   KEY (cat_id),
   KEY (uid),
   KEY (groupid)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE categories (
@@ -30,7 +30,7 @@ CREATE TABLE categories (
   KEY (cat_weight),
   KEY (pid),
   PRIMARY KEY (cat_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 CREATE TABLE pipes (
@@ -61,7 +61,7 @@ CREATE TABLE pipes (
   KEY (in_submenu),
   KEY (weight),
   PRIMARY KEY (pipe_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 
@@ -87,7 +87,7 @@ CREATE TABLE clippings (
   KEY (fetched_time),
   UNIQUE KEY (pipe_id,fingerprint),
   PRIMARY KEY (clipping_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 
@@ -96,7 +96,7 @@ CREATE TABLE joints (
   default_class varchar(32) NOT NULL default '',
   parameters text,
   PRIMARY KEY (joint_type)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 INSERT INTO joints (joint_type,default_class) VALUES ('fetch','snoopy');
 INSERT INTO joints (joint_type,default_class) VALUES ('filter','pcre');
@@ -117,6 +117,6 @@ CREATE TABLE joint_classes (
   class_name varchar(32) NOT NULL default '',
   parameters text,
   PRIMARY KEY (class_name)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 

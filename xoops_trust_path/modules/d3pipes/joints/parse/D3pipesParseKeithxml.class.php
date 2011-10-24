@@ -56,8 +56,6 @@ class D3pipesParseKeithxml extends D3pipesParseAbstract {
 	) ;
 
 	var $params = array() ;
-
-
 	function parse_option()
 	{
 		$xml_type = trim( strtolower( $this->option ) ) ;
@@ -144,7 +142,7 @@ class D3pipesParseKeithxml extends D3pipesParseAbstract {
 			if( ! empty( $this->params['post_filter_func'] ) ) $item = call_user_func( array( $this , $this->params['post_filter_func'] ) , $item ) ;
 			if( empty( $item['pubtime'] ) ) $item['pubtime'] = time() ;
 			$items[] = $item ;
-			
+
 			if( ! empty( $single_item ) ) break ;
 
 		}

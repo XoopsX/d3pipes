@@ -25,7 +25,7 @@ if( is_object( $xoopsUser ) ) {
 
 
 require_once XOOPS_TRUST_PATH.'/libs/altsys/class/D3Tpl.class.php' ;
-$tpl =& new D3Tpl() ;
+$tpl = new D3Tpl() ;
 $tpl->assign( array(
 	'mydirname' => $mydirname ,
 	'mod_url' => XOOPS_URL.'/modules/'.$mydirname ,

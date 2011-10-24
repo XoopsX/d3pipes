@@ -114,7 +114,7 @@ if( empty( $lacked_requests ) ) {
 
 xoops_cp_header();
 include dirname(__FILE__).'/mymenu.php' ;
-$tpl =& new D3Tpl() ;
+$tpl = new D3Tpl() ;
 $tpl->assign( array(
 	'mydirname' => $mydirname ,
 	'mod_name' => $xoopsModule->getVar('name') ,
