@@ -11,7 +11,7 @@ $constpref = '_MI_' . strtoupper( $mydirname ) ;
 
 $modversion['name'] = $mydirname ;
 $modversion['description'] = constant($constpref.'_DESC') ;
-$modversion['version'] = 0.68 ;
+$modversion['version'] = 0.69 ;
 $modversion['credits'] = "PEAK Corp.";
 $modversion['author'] = "GIJ=CHECKMATE<br />PEAK Corp.(http://www.peak.ne.jp/)" ;
 $modversion['help'] = "" ;
@@ -355,7 +355,17 @@ $modversion['config'][] = array(
 	'options'		=> array()
 ) ;
 
-
+if (defined( 'XOOPS_CUBE_LEGACY' )) {
+$modversion['config'][] = array(
+	'name'			=> 'backend_pipe_id' ,
+	'title'			=> $constpref.'_BACKEND_PIPE_ID' ,
+	'description'	=> '' ,
+	'formtype'		=> 'textbox' ,
+	'valuetype'		=> 'int' ,
+	'default'		=> '0' ,
+	'options'		=> array()
+) ;
+}
 
 // Notification
 $modversion['hasNotification'] = 0 ;
