@@ -51,6 +51,11 @@ Note: This feature named "Sitemap" is irrelevant from "sitemap module" I had mai
 
 [b]CHANGELOG[/b]
 
+0.69 2012-04-30
+- Changed =& new -> = new and ENGINE=MyISAM for PHP5.3 and MySQL 5.5
+- Supported "$modversion['trust_dirname']".
+  #245 http://www.xoopscube.net/redmine/issues/245
+
 0.68 2009-08-08
 - patched for the bug of libxml 2.7.0 - 2.7.3 (thx toychee)
 - modified a parse joint D3pipesParsePhpbbactivetopics.class.php 0.68a
@@ -349,6 +354,11 @@ html¥Õ¥©¥ë¥ÀÄ¾²¼¤Ë¤¢¤ë sitemap.php ¤ò mainfile.php ¤ÈÆ±¤¸³¬ÁØ¤Ë¥³¥Ô¡¼¤·¤Æ¤¯¤À¤µ¤
 
 
 ¡ü¹¹¿·ÍúÎò
+
+0.69 2012-04-30
+- PHP5.3 and MySQL 5.5 ÂÐ±þ¡§ =& new -> = new and ENGINE=MyISAM
+- XCL2.2¤Î"$modversion['trust_dirname']"¡¡¤ò¥µ¥Ý¡¼¥È
+  #245 http://www.xoopscube.net/redmine/issues/245
 
 0.68 2009-08-08
 - libxml 2.7.0 - 2.7.3 ¤Ç¥¿¥°¤¬¾Ã¤¨¤Æ¤·¤Þ¤¦¥Ð¥°¤ËÂÐ±þ (thx toychee)

@@ -15,12 +15,20 @@ class D3pipesBlockChaloglist extends D3pipesBlockAbstract {
 
 	function init()
 	{
+		// parse and check option for this class
+		$params = array_map( 'trim' , explode( '|' , $this->option ) ) ;
+		if( empty( $params[0] ) ) {
+			$this->errors[] = _MD_D3PIPES_ERR_INVALIDDIRNAMEINBLOCK."\n($this->pipe_id)" ;
+			return false ;
+		}
 		// language files
 		$this->includeLanguageBlock() ;
 
 		// configurations (file, name, block_options)
 		$this->func_file = XOOPS_MODULE_PATH.'/'.$this->target_dirname.'/blocks/recent.php' ;
-		$this->class_name = 'Chalog_RecentBlock' ;
+
+		// chalog is none d3module module ,or your need to set $this->func_name = 'cl::*'
+		$this->class_name = 'Chalog_RecentBlock' ;//same $this->func_name = 'cl::RecentBlock'
 
 		$this->block_options = array(
 			0 =>  empty( $params[0] ) ? 5 : intval( $params[0] )  // max entries
@@ -55,7 +63,7 @@ class D3pipesBlockChaloglist extends D3pipesBlockAbstract {
 			$options = explode('|', $current_value);
 
 			// options[1]  (max_entries)
-			$options[0] = empty($options[0]) ? 5 : intval($options[0]);
+			$options[0] = !isset($options[0]) ? 5 : intval($options[0]);
 			$ret_0 = _MD_D3PIPES_N4J_MAXENTRIES.'<input type="text" name="joint_options['.$index.'][0]" value="'.$options[0].'" size="2" style="text-align:right;" />' ;
 
 			return '<input type="hidden" name="joint_option['.$index.']" id="joint_option_'.$index.'" value="" />'.$ret_0 ;
