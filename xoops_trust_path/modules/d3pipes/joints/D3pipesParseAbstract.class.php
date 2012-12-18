@@ -20,6 +20,11 @@ class D3pipesParseAbstract extends D3pipesJointAbstract {
 	// utility
 	function dateToUnix( $date_formatted )
 	{
+		if (is_array($date_formatted)) {
+			// select last item
+			$date_formatted = array_pop($date_formatted);
+		}
+		
 		if( preg_match( '/^[a-zA-Z]/' , trim( $date_formatted ) ) ) {
 			$localunixtime = strtotime( $date_formatted ) ;
 			if( $localunixtime != -1 ) return $localunixtime ;
