@@ -49,6 +49,7 @@ define($constpref.'_SNP_PROXYPORT','Port of proxy server');
 define($constpref.'_SNP_PROXYUSER','Username for proxy server');
 define($constpref.'_SNP_PROXYPASS','Password for proxy server');
 define($constpref.'_SNP_CURLPATH','curl path (default: /usr/bin/curl)');
+define($constpref.'_SNP_TIMEOUT','Fetch read timeout (Snoopy)');
 define($constpref.'_TIDY_PATH','tidy path (default: /usr/bin/tidy)');
 define($constpref.'_XSLTPROC_PATH','xsltproc path (default: /usr/bin/xsltproc)');
 define($constpref.'_UPING_SERVERS','Update Ping Servers');

@@ -49,6 +49,7 @@ define($constpref.'_SNP_PROXYPORT','Porta do servidor proxy');
 define($constpref.'_SNP_PROXYUSER','Nome de usuário para o servidor proxy');
 define($constpref.'_SNP_PROXYPASS','Senha para o servidor proxy');
 define($constpref.'_SNP_CURLPATH','curl percurso (padrão: /usr/bin/curl)');
+define($constpref.'_SNP_TIMEOUT','Busque ler tempo limite (Snoopy)');
 define($constpref.'_TIDY_PATH','tidy percurso (padrão: /usr/bin/tidy)');
 define($constpref.'_XSLTPROC_PATH','xsltproc percurso (padrão: /usr/bin/xsltproc)');
 define($constpref.'_UPING_SERVERS','Atualizar servidores Ping');

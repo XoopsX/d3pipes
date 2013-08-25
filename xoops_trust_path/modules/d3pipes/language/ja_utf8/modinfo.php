@@ -49,6 +49,7 @@ define($constpref.'_SNP_PROXYPORT','外部取得に経由するProxyのポート
 define($constpref.'_SNP_PROXYUSER','外部取得に経由するProxyのユーザ名');
 define($constpref.'_SNP_PROXYPASS','外部取得に経由するProxyのパスワード');
 define($constpref.'_SNP_CURLPATH','curlのパス (デフォルトは/usr/bin/curl)');
+define($constpref.'_SNP_TIMEOUT','外部取得時のタイムアウト(Snoopy)');
 define($constpref.'_TIDY_PATH','tidyのパス (デフォルトは/usr/bin/tidy)');
 define($constpref.'_XSLTPROC_PATH','xsltprocのパス (デフォルトは/usr/bin/xsltproc)');
 define($constpref.'_UPING_SERVERS','更新Pingサーバ');

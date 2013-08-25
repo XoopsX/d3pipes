@@ -206,6 +206,16 @@ $modversion['config'][] = array(
 ) ;
 
 $modversion['config'][] = array(
+	'name'			=> 'snoopy_timeout' ,
+	'title'			=> $constpref.'_SNP_TIMEOUT' ,
+	'description'	=> '' ,
+	'formtype'		=> 'textbox' ,
+	'valuetype'		=> 'int' ,
+	'default'		=> '15' ,
+	'options'		=> array()
+) ;
+
+$modversion['config'][] = array(
 	'name'			=> 'snoopy_proxy_host' ,
 	'title'			=> $constpref.'_SNP_PROXYHOST' ,
 	'description'	=> $constpref.'_SNP_PROXYHOSTDSC' ,

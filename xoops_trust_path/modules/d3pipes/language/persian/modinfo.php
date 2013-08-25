@@ -61,6 +61,7 @@ define($constpref.'_SNP_PROXYPORT','پرت سرویس دهنده پروکسی');
 define($constpref.'_SNP_PROXYUSER','نام کاربری سرویس دهنده پروکسی');
 define($constpref.'_SNP_PROXYPASS','واژه رمز سرویس دهنده پروکسی');
 define($constpref.'_SNP_CURLPATH','مسیر curl (پیش فرض: /usr/bin/curl)');
+define($constpref.'_SNP_TIMEOUT','واکشی ایست (Snoopy)');
 define($constpref.'_TIDY_PATH',' مسیر tidy (پیش فرض: /usr/bin/tidy)');
 define($constpref.'_XSLTPROC_PATH','مسیر xsltproc (پیش فرض: /usr/bin/xsltproc)');
 define($constpref.'_UPING_SERVERS','به روز کردن پینگ (ping) سرور ها');

@@ -33,6 +33,7 @@ class D3pipesFetchSnoopy extends D3pipesFetchAbstract {
 		$snoopy->proxy_user = $this->mod_configs['snoopy_proxy_user'] ;
 		$snoopy->proxy_pass = $this->mod_configs['snoopy_proxy_pass'] ;
 		$snoopy->curl_path = $this->mod_configs['snoopy_curl_path'] ;
+		$snoopy->read_timeout = (int)$this->mod_configs['snoopy_timeout'] ;
 
 		$fetch_result = $snoopy->fetch( $this->url ) ;
 
