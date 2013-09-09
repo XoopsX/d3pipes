@@ -69,7 +69,7 @@ if( ( ! empty( $_POST['do_update'] ) || ! empty( $_POST['do_saveas'] ) ) && is_a
 	}
 
 	// make sql
-	$set4sql = "`joints`='".mysql_real_escape_string(serialize(array_values($joints)))."',name='".mysql_real_escape_string($myts->stripSlashesGPC(@$_POST['name']))."',url='".mysql_real_escape_string($myts->stripSlashesGPC(@$_POST['url']))."',image='".mysql_real_escape_string($myts->stripSlashesGPC(@$_POST['image']))."',description='".mysql_real_escape_string($myts->stripSlashesGPC(@$_POST['description']))."'" ;
+	$set4sql = "`joints`=".$db->quoteString(serialize(array_values($joints))).",name=".$db->quoteString($myts->stripSlashesGPC(@$_POST['name'])).",url=".$db->quoteString($myts->stripSlashesGPC(@$_POST['url'])).",image=".$db->quoteString($myts->stripSlashesGPC(@$_POST['image'])).",description=".$db->quoteString($myts->stripSlashesGPC(@$_POST['description'])) ;
 	
 	$pipe_id = intval( @$_POST['pipe_id'] ) ;
 	if( $pipe_id == 0 || ! empty( $_POST['do_saveas'] ) ) {
@@ -109,13 +109,13 @@ if( ! empty( $_POST['do_batchupdate'] ) ) {
 
 	foreach( $_POST['name'] as $pipe_id => $name ) {
 		$pipe_id = intval( $pipe_id ) ;
-		$name4sql = mysql_real_escape_string($myts->stripSlashesGPC( $name )) ;
+		$name4sql = $db->quoteString($myts->stripSlashesGPC( $name )) ;
 		$weight4sql = intval( @$_POST['weight'][$pipe_id] ) ;
 		$flags4sql = '' ;
 		foreach( array( 'main_disp' , 'main_list' , 'main_aggr' , 'main_rss' , 'block_disp' , 'in_submenu' ) as $key ) {
 			$flags4sql .= ",`$key`=".( empty( $_POST[$key][$pipe_id] ) ? '0' : '1' ) ;
 		}
-		$db->queryF( "UPDATE ".$db->prefix($mydirname."_pipes")." SET name='$name4sql',weight='$weight4sql' $flags4sql WHERE pipe_id=$pipe_id" ) ;
+		$db->queryF( "UPDATE ".$db->prefix($mydirname."_pipes")." SET name=$name4sql,weight='$weight4sql' $flags4sql WHERE pipe_id=$pipe_id" ) ;
 	}
 
 	redirect_header( XOOPS_URL."/modules/$mydirname/admin/index.php?page=pipe" , 3 , _MD_A_D3PIPES_MSG_PIPEUPDATED ) ;

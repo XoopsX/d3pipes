@@ -20,8 +20,8 @@ if( ! empty( $_POST['do_update'] ) ) {
 		if( ! empty( $_POST['jointclass'][ $joint_type ] ) ) {
 			$joint_class = $_POST['jointclass'][ $joint_type ] ;
 			if( isset( $valid_classes[ $joint_class ] ) ) {
-				$db->query( "DELETE FROM ".$db->prefix($mydirname."_joints")." WHERE joint_type='".mysql_real_escape_string($joint_type)."'" ) ;
-				$db->query( "INSERT INTO ".$db->prefix($mydirname."_joints")." (joint_type,default_class) VALUES ('".mysql_real_escape_string($joint_type)."','".mysql_real_escape_string($joint_class)."')" ) ;
+				$db->query( "DELETE FROM ".$db->prefix($mydirname."_joints")." WHERE joint_type=".$db->quoteString($joint_type) ) ;
+				$db->query( "INSERT INTO ".$db->prefix($mydirname."_joints")." (joint_type,default_class) VALUES (".$db->quoteString($joint_type).",".$db->quoteString($joint_class).")" ) ;
 			}
 		}
 	}

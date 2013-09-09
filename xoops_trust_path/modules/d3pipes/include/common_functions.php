@@ -75,7 +75,7 @@ function d3pipes_common_update_joint_option( $mydirname , $pipe_id , $joint_type
 				$joints[ $i ][ 'option' ] = $option ;
 			}
 		}
-		$db->queryF( "UPDATE ".$db->prefix($mydirname."_pipes")." SET joints='".mysql_real_escape_string(serialize($joints))."' WHERE pipe_id=$pipe_id" ) ;
+		$db->queryF( "UPDATE ".$db->prefix($mydirname."_pipes")." SET joints=".$db->quoteString(serialize($joints))." WHERE pipe_id=$pipe_id" ) ;
 	}
 }
 
@@ -84,7 +84,7 @@ function d3pipes_common_get_default_joint_class( $mydirname , $joint_type )
 {
 	$db =& Database::getInstance() ;
 
-	list( $ret ) = $db->fetchRow( $db->query( "SELECT default_class FROM ".$db->prefix($mydirname."_joints")." WHERE joint_type='".mysql_real_escape_string($joint_type)."'" ) ) ;
+	list( $ret ) = $db->fetchRow( $db->query( "SELECT default_class FROM ".$db->prefix($mydirname."_joints")." WHERE joint_type=".$db->quoteString($joint_type) ) ) ;
 	if( empty( $ret ) ) {
 		$classes_base = XOOPS_TRUST_PATH.'/modules/d3pipes/joints/'.$joint_type ;
 		if( $handler = @opendir( $classes_base ) ) {

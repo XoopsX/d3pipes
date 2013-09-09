@@ -20,16 +20,16 @@ class D3pipesClipModuledb extends D3pipesClipAbstract {
 		$entries = array_reverse( $entries ) ;
 
 		foreach( $entries as $i => $entry ) {
-			$fingerprint4sql = mysql_real_escape_string( @$entry['fingerprint'] ) ;
-			if( empty( $fingerprint4sql ) ) continue ;
-			list( $count ) = $db->fetchRow( $db->query( "SELECT COUNT(*) FROM $clip_table WHERE fingerprint='$fingerprint4sql' AND pipe_id=$this->pipe_id" ) ) ;
+			if( empty( $entry['fingerprint'] ) ) continue ;
+			$fingerprint4sql = $db->quoteString( $entry['fingerprint'] ) ;
+			list( $count ) = $db->fetchRow( $db->query( "SELECT COUNT(*) FROM $clip_table WHERE fingerprint=$fingerprint4sql AND pipe_id=$this->pipe_id" ) ) ;
 			if( $count > 0 ) continue ;
 
 			$pubtime4sql = empty( $entry['pubtime'] ) ? time() : intval( $entry['pubtime'] ) ;
-			$link4sql = empty( $entry['link'] ) ? '' : mysql_real_escape_string( $entry['link'] ) ;
-			$headline4sql = empty( $entry['headline'] ) ? '(no title)' : mysql_real_escape_string( $entry['headline'] ) ;
+			$link4sql = empty( $entry['link'] ) ? '\'\'' : $db->quoteString( $entry['link'] ) ;
+			$headline4sql = empty( $entry['headline'] ) ? '\'(no title)\'' : $db->quoteString( $entry['headline'] ) ;
 
-			$db->queryF( "INSERT INTO $clip_table (pipe_id,fingerprint,pubtime,link,headline,data,fetched_time) VALUES ($this->pipe_id,'$fingerprint4sql',$pubtime4sql,'$link4sql','$headline4sql','".mysql_real_escape_string(serialize($entry))."',UNIX_TIMESTAMP())" ) ;
+			$db->queryF( "INSERT INTO $clip_table (pipe_id,fingerprint,pubtime,link,headline,data,fetched_time) VALUES ($this->pipe_id,$fingerprint4sql,$pubtime4sql,$link4sql,$headline4sql,".$db->quoteString(serialize($entry)).",UNIX_TIMESTAMP())" ) ;
 		}
 
 		return $this->getLatestClippings( $max_entries ) ;

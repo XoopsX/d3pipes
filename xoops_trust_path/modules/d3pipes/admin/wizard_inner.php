@@ -27,7 +27,7 @@ if( ! empty( $_POST['joints'] ) ) {
 		if( ! is_object( $module ) ) continue ;
 		$joints = array( array( 'joint' => $type , 'joint_class' => $class , 'option' => $dirname ) ) ;
 		// make a sql for each block's pipe
-		$values4sql = "UNIX_TIMESTAMP(),UNIX_TIMESTAMP(),'".mysql_real_escape_string(serialize($joints))."','".mysql_real_escape_string($module->getVar('name','n'))."','".mysql_real_escape_string(XOOPS_URL.'/modules/'.$module->getVar('dirname').'/')."','$weight'" ;
+		$values4sql = "UNIX_TIMESTAMP(),UNIX_TIMESTAMP(),".$db->quoteString(serialize($joints)).",".$db->quoteString($module->getVar('name','n')).",".$db->quoteString(XOOPS_URL.'/modules/'.$module->getVar('dirname').'/').",'$weight'" ;
 		$db->queryF( "INSERT INTO ".$db->prefix($mydirname."_pipes")." (created_time,modified_time,joints,name,url,weight) VALUES ($values4sql)" ) ;
 		$pipe_ids[] = $db->getInsertId() ;
 		$weight ++ ;
@@ -35,7 +35,7 @@ if( ! empty( $_POST['joints'] ) ) {
 
 	// make a sql for the union pipe
 	if( ! empty( $_POST['create_union_pipe'] ) ) {
-		$values4sql = "UNIX_TIMESTAMP(),UNIX_TIMESTAMP(),'".mysql_real_escape_string(serialize(array(array('joint'=>'union','joint_class'=>'mergesort','option'=>implode(',',$pipe_ids)))))."','"._MD_A_D3PIPES_TITLE_WIZ_INNERUNION."','".mysql_real_escape_string(XOOPS_URL.'/')."','$weight'" ;
+		$values4sql = "UNIX_TIMESTAMP(),UNIX_TIMESTAMP(),".$db->quoteString(serialize(array(array('joint'=>'union','joint_class'=>'mergesort','option'=>implode(',',$pipe_ids))))).",'"._MD_A_D3PIPES_TITLE_WIZ_INNERUNION."',".$db->quoteString(XOOPS_URL.'/').",'$weight'" ;
 		$db->queryF( "INSERT INTO ".$db->prefix($mydirname."_pipes")." (created_time,modified_time,joints,name,url,weight) VALUES ($values4sql)" ) ;
 	}
 
