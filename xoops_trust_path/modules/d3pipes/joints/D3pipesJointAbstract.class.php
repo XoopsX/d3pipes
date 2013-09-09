@@ -42,7 +42,7 @@ class D3pipesJointAbstract {
 	{
 		$index = intval( $index ) ;
 
-		return '<input type="text" name="joint_option['.$index.']" id="joint_option_'.$index.'" value="'.htmlspecialchars($current_value,ENT_QUOTES).'" size="40" />' ;
+		return '<input type="text" name="joint_option['.$index.']" id="joint_option_'.$index.'" value="'.htmlspecialchars($current_value,ENT_QUOTES,_CHARSET).'" size="40" />' ;
 	}
 
 	function getMyname4disp()

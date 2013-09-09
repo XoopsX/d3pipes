@@ -10,7 +10,7 @@ $option_value_utf8 = $myts->stripSlashesGPC( @$_GET['option_value'] ) ;
 $option_value = d3pipes_common_convert_encoding_utf8toie( $mydirname , $option_value_utf8 ) ;
 
 $all_joints = d3pipes_admin_fetch_joints( $mydirname ) ;
-$disabled_option_input = '<input type="text" name="joint_option['.$index.']" id="joint_option_'.$index.'" value="'.htmlspecialchars($option_value,ENT_QUOTES).'" size="20" disabled="disabled" />' ;
+$disabled_option_input = '<input type="text" name="joint_option['.$index.']" id="joint_option_'.$index.'" value="'.htmlspecialchars($option_value,ENT_QUOTES,_CHARSET).'" size="20" disabled="disabled" />' ;
 
 @list( $joint_type , $joint_class ) = explode( '::' , $myts->stripSlashesGPC( @$_GET['type_class'] ) ) ;
 if( empty( $joint_type ) || ! isset( $all_joints[ $joint_type ] ) ) die( $disabled_option_input ) ;

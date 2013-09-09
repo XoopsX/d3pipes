@@ -3,7 +3,7 @@
 function b_d3pipes_sync_show( $options )
 {
 	$mydirname = empty( $options[0] ) ? 'd3pipes' : $options[0] ;
-	$unique_id = empty( $options[1] ) ? uniqid( rand() ) : htmlspecialchars( $options[1] , ENT_QUOTES ) ; // just dummy
+	$unique_id = empty( $options[1] ) ? uniqid( rand() ) : htmlspecialchars( $options[1] , ENT_QUOTES , _CHARSET ) ; // just dummy
 	$pipe_ids = empty( $options[2] ) ? array(0) : explode( ',' , preg_replace( '/[^0-9,:]/' , '' ,  $options[2] ) ) ;
 	$max_entries = empty( $options[3] ) ? 0 : intval( $options[3] ) ;
 	$this_template = empty( $options[4] ) ? 'db:'.$mydirname.'_block_sync.html' : trim( $options[4] ) ;

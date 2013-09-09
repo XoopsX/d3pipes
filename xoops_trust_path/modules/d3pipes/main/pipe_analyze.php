@@ -35,7 +35,7 @@ if( strstr( @$_SERVER['HTTP_USER_AGENT'] , 'MSIE' ) ) {
 	// for the idiot browser :-)
 	@ini_set( 'default_charset' , 'UTF-8' ) ;
 	header( 'Content-type: text/html;' ) ;
-	echo '<pre>'.htmlspecialchars( $body ).'</pre>' ;
+	echo '<pre>'.htmlspecialchars( $body , ENT_COMPAT , 'UTF-8' ).'</pre>' ;
 } else {
 	@ini_set( 'default_charset' , '' ) ;
 	header( 'Content-type: text/plain;' ) ;

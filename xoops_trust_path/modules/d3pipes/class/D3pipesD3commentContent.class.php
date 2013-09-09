@@ -28,7 +28,7 @@ function fetchSummary( $external_link_id )
 		'module_name' => $module->getVar( 'name' ) ,
 		'subject' => $myts->makeTboxData4Show( $clipping['headline'] ) ,
 		'uri' => XOOPS_URL.'/modules/'.$mydirname.'/index.php?page=clipping&amp;clipping_id='.$clipping_id ,
-		'summary' => htmlspecialchars( @$clipping['link'] , ENT_QUOTES ) ,
+		'summary' => htmlspecialchars( @$clipping['link'] , ENT_QUOTES , _CHARSET ) ,
 	) ;
 }
 
@@ -78,7 +78,7 @@ function external_link_id( $params )
 function getSubjectRaw( $params )
 {
 	$entry = $this->smarty->get_template_vars( 'entry' ) ;
-	return $this->unhtmlspecialchars( $entry['headline'] , ENT_QUOTES ) ;
+	return $this->unhtmlspecialchars( $entry['headline'] , ENT_QUOTES, _CHARSET ) ;
 }
 
 

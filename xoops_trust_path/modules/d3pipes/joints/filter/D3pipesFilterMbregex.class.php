@@ -24,7 +24,7 @@ class D3pipesFilterMbregex extends D3pipesFilterAbstract {
 	{
 		$index = intval( $index ) ;
 
-		return '<input type="text" name="joint_option['.$index.']" id="joint_option_'.$index.'" value="'.htmlspecialchars($current_value,ENT_QUOTES).'" size="40" /><br />'._MD_D3PIPES_N4J_WRITEPOSIX ;
+		return '<input type="text" name="joint_option['.$index.']" id="joint_option_'.$index.'" value="'.htmlspecialchars($current_value,ENT_QUOTES,_CHARSET).'" size="40" /><br />'._MD_D3PIPES_N4J_WRITEPOSIX ;
 	}
 }
 

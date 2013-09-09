@@ -18,7 +18,7 @@ class D3pipesReassignStriptags extends D3pipesReassignAbstract {
 	{
 		$index = intval( $index ) ;
 
-		return '<input type="hidden" name="joint_option['.$index.']" id="joint_option_'.$index.'" value="'.htmlspecialchars($current_value,ENT_QUOTES).'" />' ;
+		return '<input type="hidden" name="joint_option['.$index.']" id="joint_option_'.$index.'" value="'.htmlspecialchars($current_value,ENT_QUOTES,_CHARSET).'" />' ;
 	}
 }
 

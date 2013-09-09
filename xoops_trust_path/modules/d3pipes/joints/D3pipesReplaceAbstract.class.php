@@ -26,10 +26,10 @@ class D3pipesReplaceAbstract extends D3pipesJointAbstract {
 		$options = explode( $this->separator , $current_value , 2 ) ;
 
 		// options[0]  (patterns from)
-		$ret_0 = _MD_D3PIPES_N4J_REPLACEFROM.'<input type="text" name="joint_options['.$index.'][0]" value="'.htmlspecialchars(@$options[0],ENT_QUOTES).'" size="30" />' ;
+		$ret_0 = _MD_D3PIPES_N4J_REPLACEFROM.'<input type="text" name="joint_options['.$index.'][0]" value="'.htmlspecialchars(@$options[0],ENT_QUOTES,_CHARSET).'" size="30" />' ;
 
 		// options[1]  (replacement to)
-		$ret_1 = _MD_D3PIPES_N4J_REPLACETO.'<input type="text" name="joint_options['.$index.'][1]" value="'.htmlspecialchars(@$options[1],ENT_QUOTES).'" size="30" />' ;
+		$ret_1 = _MD_D3PIPES_N4J_REPLACETO.'<input type="text" name="joint_options['.$index.'][1]" value="'.htmlspecialchars(@$options[1],ENT_QUOTES,_CHARSET).'" size="30" />' ;
 
 		return '<input type="hidden" name="joint_option_separator['.$index.']" value="'.$this->separator.'" /><input type="hidden" name="joint_option['.$index.']" id="joint_option_'.$index.'" value="" />'.$ret_0.'<br />'.$ret_1 ;
 	}

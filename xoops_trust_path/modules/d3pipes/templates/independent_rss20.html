@@ -8,22 +8,22 @@
 		<docs>http://backend.userland.com/rss/</docs>
 		<generator>XOOPS - d3pipes</generator>
 		<category>d3pipes</category>
-		<webMaster><{$xoops_config_utf8.slogan|escape}></webMaster>
+		<webMaster><{$xoops_config_utf8.slogan|escape:'html':'UTF-8'}></webMaster>
 		<language><{$smarty.const._LANGCODE}></language>
 
 		<{foreach from=$entries item="entry"}>
 		<item>
-			<title><{$entry.headline|escape}></title>
+			<title><{$entry.headline|escape:'html':'UTF-8'}></title>
 			<{if $link_prefer == 'clipping' && $entry.clipping_id}>
 			<link><{$mod_url}>/index.php?page=clipping&amp;clipping_id=<{$entry.clipping_id}></link>
 			<{else}>
-			<link><{$entry.link|escape}></link>
+			<link><{$entry.link|escape:'html':'UTF-8'}></link>
 			<{/if}>
-			<description><{$entry.description|escape}></description>
+			<description><{$entry.description|escape:'html':'UTF-8'}></description>
 			<{if $entry.content_encoded}>
 				<content:encoded> <![CDATA[ <{$entry.content_encoded}> ]]> </content:encoded>
 			<{/if}>
-			<guid><{$entry.fingerprint|escape}></guid>
+			<guid><{$entry.fingerprint|escape:'html':'UTF-8'}></guid>
 			<pubDate><{"r"|date:$entry.pubtime}></pubDate>
 			<category><{$entry.category}></category>
 		</item>

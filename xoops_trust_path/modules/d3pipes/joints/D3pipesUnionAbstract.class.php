@@ -57,7 +57,7 @@ class D3pipesUnionAbstract extends D3pipesJointAbstract {
 
 		// options[0]  (entries)
 		$options[0] = preg_replace( '/[^0-9,:]/' , '' , @$options[0] ) ;
-		$ret_0 = '<label>'._MD_D3PIPES_N4J_UNION.'<input type="text" name="joint_options['.$index.'][0]" value="'.htmlspecialchars($options[0],ENT_QUOTES).'" size="40" /></label>' ;
+		$ret_0 = '<label>'._MD_D3PIPES_N4J_UNION.'<input type="text" name="joint_options['.$index.'][0]" value="'.htmlspecialchars($options[0],ENT_QUOTES,_CHARSET).'" size="40" /></label>' ;
 
 		// options[1]  (default num)
 		$options[1] = empty( $options[1] ) ? 10 : intval( @$options[1] ) ;

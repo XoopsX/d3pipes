@@ -48,7 +48,7 @@ class D3pipesUnionTheotherd3pipes extends D3pipesUnionAbstract {
 			if( $mytrustdirname != 'd3pipes' ) continue ;
 
 			$selected = $dirname == $this->target_dirname ? 'selected="selected"' : '' ;
-			$dirname4disp = htmlspecialchars( $dirname , ENT_QUOTES ) ;
+			$dirname4disp = htmlspecialchars( $dirname , ENT_QUOTES , _CHARSET ) ;
 			$select_options .= "<option value='$dirname4disp' $selected > $dirname4disp </option>" ;
 		}
 

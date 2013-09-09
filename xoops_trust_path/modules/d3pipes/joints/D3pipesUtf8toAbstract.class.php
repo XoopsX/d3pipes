@@ -21,7 +21,7 @@ class D3pipesUtf8toAbstract extends D3pipesJointAbstract {
 		$index = intval( $index ) ;
 		$current_value = preg_replace( '/[^0-9a-zA-Z_-]/' , '' , $current_value ) ;
 
-		return '<input type="text" name="joint_option['.$index.']" id="joint_option_'.$index.'" value="'.htmlspecialchars($current_value,ENT_QUOTES).'" size="12" /><br />'._MD_D3PIPES_N4J_UTF8TO ;
+		return '<input type="text" name="joint_option['.$index.']" id="joint_option_'.$index.'" value="'.htmlspecialchars($current_value,ENT_QUOTES,_CHARSET).'" size="12" /><br />'._MD_D3PIPES_N4J_UTF8TO ;
 	}
 }
 

@@ -56,7 +56,7 @@ function b_d3pipes_get_pipe_options( $mydirname )
 	$pipe_options = array( '' => '----' ) ;
 	while( $myrow = $db->fetchArray( $result ) ) {
 		$joints = unserialize( $myrow['joints'] ) ;
-		$pipe_options[ intval( $myrow['pipe_id'] ) ] = htmlspecialchars( '(' . $myrow['pipe_id'] . ') ' . d3pipes_admin_judge_type_of_pipe( $joints ) . ' - ' . $myrow['name'] , ENT_QUOTES ) ;
+		$pipe_options[ intval( $myrow['pipe_id'] ) ] = htmlspecialchars( '(' . $myrow['pipe_id'] . ') ' . d3pipes_admin_judge_type_of_pipe( $joints ) . ' - ' . $myrow['name'] , ENT_QUOTES , _CHARSET ) ;
 	}
 	
 	return $pipe_options ;

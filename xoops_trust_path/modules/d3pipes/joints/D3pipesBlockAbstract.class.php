@@ -216,7 +216,7 @@ class D3pipesBlockAbstract extends D3pipesJointAbstract {
 		$ret_1 = _MD_D3PIPES_N4J_MAXENTRIES.'<input type="text" name="joint_options['.$index.'][1]" value="'.$options[1].'" size="2" style="text-align:right;" />' ;
 		// options[2],[3]... (extra options)
 		$extra_options = empty( $options[2] ) ? '' : $options[2] ;
-		$ret_2 = _MD_D3PIPES_N4J_EXTRAOPTIONS.'<input type="text" name="joint_options['.$index.'][2]" value="'.htmlspecialchars($extra_options,ENT_QUOTES).'" size="20" />' ;
+		$ret_2 = _MD_D3PIPES_N4J_EXTRAOPTIONS.'<input type="text" name="joint_options['.$index.'][2]" value="'.htmlspecialchars($extra_options,ENT_QUOTES,_CHARSET).'" size="20" />' ;
 
 		return '<input type="hidden" name="joint_option['.$index.']" id="joint_option_'.$index.'" value="" />'.$ret_0.' &nbsp; '.$ret_1.'<br />'.$ret_2 ;
 	}

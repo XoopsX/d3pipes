@@ -21,7 +21,7 @@ $pipe_id = intval( $clipping['pipe_id'] ) ;
 $pipe4assign = d3pipes_common_get_pipe4assign( $mydirname , $clipping['pipe_id'] ) ;
 
 // pagetitle & xoops_breadcrumbs
-$pagetitle4assign = empty( $clipping['headline'] ) ? _MD_D3PIPES_H2_CLIPPING : htmlspecialchars( $clipping['headline'] , ENT_QUOTES ) ;
+$pagetitle4assign = empty( $clipping['headline'] ) ? _MD_D3PIPES_H2_CLIPPING : htmlspecialchars( $clipping['headline'] , ENT_QUOTES , _CHARSET ) ;
 $xoops_breadcrumbs[] = array( 'name' => @$pipe4assign['name'] , 'url' => XOOPS_URL.'/modules/'.$mydirname.'/index.php?page=eachpipe&amp;pipe_id='.$clipping['pipe_id'] ) ;
 $xoops_breadcrumbs[] = array( 'name' => _MD_D3PIPES_H2_CLIPLIST , 'url' => XOOPS_URL.'/modules/'.$mydirname.'/index.php?page=cliplist&amp;pipe_id='.$clipping['pipe_id'] ) ;
 $xoops_breadcrumbs[] = array( 'name' => $pagetitle4assign ) ;

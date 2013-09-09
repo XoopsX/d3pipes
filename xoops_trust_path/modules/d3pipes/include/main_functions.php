@@ -27,7 +27,7 @@ function d3pipes_main_get_link2maincss( $mydirname )
 {
 	global $xoopsModuleConfig ;
 
-	$css_uri4disp = htmlspecialchars( str_replace( '{mod_url}' , XOOPS_URL.'/modules/'.$mydirname , @$xoopsModuleConfig['css_uri'] ) , ENT_QUOTES ) ;
+	$css_uri4disp = htmlspecialchars( str_replace( '{mod_url}' , XOOPS_URL.'/modules/'.$mydirname , @$xoopsModuleConfig['css_uri'] ) , ENT_QUOTES , _CHARSET ) ;
 
 	return '<link rel="stylesheet" type="text/css" media="all" href="'.$css_uri4disp.'" />'."\n" ;
 }

@@ -27,7 +27,7 @@ class D3pipesReplaceXsltproc extends D3pipesReplaceAbstract {
 	{
 		$index = intval( $index ) ;
 
-		return '<input type="text" name="joint_option['.$index.']" id="joint_option_'.$index.'" value="'.htmlspecialchars($current_value,ENT_QUOTES).'" size="40" /><br />'._MD_D3PIPES_N4J_XSLTPATH ;
+		return '<input type="text" name="joint_option['.$index.']" id="joint_option_'.$index.'" value="'.htmlspecialchars($current_value,ENT_QUOTES,_CHARSET).'" size="40" /><br />'._MD_D3PIPES_N4J_XSLTPATH ;
 	}
 }
 

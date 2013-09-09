@@ -68,7 +68,7 @@ class D3pipesCacheAbstract extends D3pipesJointAbstract {
 
 		$current_value = intval( $current_value ) ;
 
-		return '<input type="text" name="joint_option['.$index.']" id="joint_option_'.$index.'" value="'.htmlspecialchars($current_value,ENT_QUOTES).'" size="10" style="text-align:right;" /><br />'._MD_D3PIPES_N4J_CACHE ;
+		return '<input type="text" name="joint_option['.$index.']" id="joint_option_'.$index.'" value="'.htmlspecialchars($current_value,ENT_QUOTES,_CHARSET).'" size="10" style="text-align:right;" /><br />'._MD_D3PIPES_N4J_CACHE ;
 	}
 
 }

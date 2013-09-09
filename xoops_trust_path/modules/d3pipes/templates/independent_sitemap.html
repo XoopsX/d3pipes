@@ -8,7 +8,7 @@
 
 <{foreach from=$entries item="entry"}>
   <url>
-    <loc><{$entry.link|escape}></loc>
+    <loc><{$entry.link|escape:'html':'UTF-8'}></loc>
     <lastmod><{"Y-m-d\TH:i:s\Z"|gmdate:$entry.pubtime}></lastmod>
   </url>
 <{/foreach}>

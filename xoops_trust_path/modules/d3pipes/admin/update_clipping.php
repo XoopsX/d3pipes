@@ -41,8 +41,8 @@ while( ob_get_level() ) {
 	ob_end_clean() ;
 }
 //	ini_set( 'default_encoding' , 'UTF-8' ) ;
-//	echo htmlspecialchars( d3pipes_common_convert_encoding_ietoutf8( $mydirname , $value4disp ) , ENT_QUOTES ) ;
-echo htmlspecialchars( $value4disp , ENT_QUOTES ) ;
+//	echo htmlspecialchars( d3pipes_common_convert_encoding_ietoutf8( $mydirname , $value4disp ) , ENT_QUOTES , _CHARSET ) ;
+echo htmlspecialchars( $value4disp , ENT_QUOTES , _CHARSET ) ;
 if( ! 'ALTSYS_DONT_USE_ADMIN_IN_THEME' ) define( 'ALTSYS_DONT_USE_ADMIN_IN_THEME' , 1 ) ;
 unset( $xoopsUser ) ; // for preventing older admin_in_theme
 exit ;

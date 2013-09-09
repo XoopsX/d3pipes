@@ -37,12 +37,12 @@ function & XML_serialize(&$data, $level = 0, $prior_key = NULL){
 				echo str_repeat("\t", $level),'<',$tag;
 				if(array_key_exists("$key attr", $data)){ #if there's an attribute for this element
 					while(list($attr_name, $attr_value) = each($data["$key attr"]))
-						echo ' ',$attr_name,'="',htmlspecialchars($attr_value),'"';
+						echo ' ',$attr_name,'="',htmlspecialchars($attr_value, ENT_COMPAT, 'UTF-8'),'"';
 					reset($data["$key attr"]);
 				}
 
 				if(is_null($value)) echo " />\n";
-				elseif(!is_array($value)) echo '>',htmlspecialchars($value),"</$tag>\n";
+				elseif(!is_array($value)) echo '>',htmlspecialchars($value, ENT_COMPAT, 'UTF-8'),"</$tag>\n";
 				else echo ">\n",XML_serialize($value, $level+1),str_repeat("\t", $level),"</$tag>\n";
 			}
 	reset($data);
