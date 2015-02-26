@@ -25,7 +25,7 @@
 						<{/if}>
 
 						<li>
-							<{$smarty.const._MEDIUMDATESTRING|date:$entry.pubtime+$timezone_offset}>
+							<{$smarty.const._MEDIUMDATESTRING|date:$entry.pubtime+$block.timezone_offset}>
 							<{if $entry.clipping_id && $block.link2clipping}>
 								<a href="<{$block.mod_url}>/index.php?page=clipping&amp;clipping_id=<{$entry.clipping_id}>"><{$entry_headline4disp}></a>
 							<{else}>
@@ -48,7 +48,7 @@
 				<{/if}>
 
 				<li>
-					<{$smarty.const._MEDIUMDATESTRING|date:$entry.pubtime+$timezone_offset}>
+					<{$smarty.const._MEDIUMDATESTRING|date:$entry.pubtime+$block.timezone_offset}>
 					<{if $entry.clipping_id && $block.link2clipping}>
 						<a href="<{$block.mod_url}>/index.php?page=clipping&amp;clipping_id=<{$entry.clipping_id}>"><{$entry_headline4disp}></a>
 					<{else}>
