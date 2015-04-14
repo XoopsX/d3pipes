@@ -9,7 +9,7 @@ class D3pipesD3commentContent extends D3commentAbstract {
 function fetchSummary( $external_link_id )
 {
 	$db =& Database::getInstance() ;
-	$myts =& MyTextsanitizer::getInstance() ;
+	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextsanitizer::getInstance() ;
 
 	$mydirname = $this->mydirname ;
 	if( preg_match( '/[^0-9a-zA-Z_-]/' , $mydirname ) ) die( 'Invalid mydirname' ) ;

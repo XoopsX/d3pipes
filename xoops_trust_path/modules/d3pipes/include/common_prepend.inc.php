@@ -5,7 +5,7 @@ require_once dirname(__FILE__).'/common_functions.php' ;
 require_once XOOPS_TRUST_PATH.'/libs/altsys/include/altsys_functions.php' ;
 require_once XOOPS_TRUST_PATH.'/libs/altsys/class/D3Tpl.class.php' ;
 
-$myts =& MyTextSanitizer::getInstance() ;
+(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance() ;
 $db =& Database::getInstance() ;
 
 // init xoops_breadcrumbs
