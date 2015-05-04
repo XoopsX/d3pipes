@@ -32,7 +32,7 @@ class D3pipesJointAbstract {
 	}
 
 	// virtual
-	function execute()
+	function execute( $entries , $max_entries = 10 )
 	{
 		return array() ;
 	}

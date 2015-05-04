@@ -141,7 +141,7 @@ class D3pipesBlockAbstract extends D3pipesJointAbstract {
 	function init() {}
 
 	// virtual
-	function reassign() {}
+	function reassign( $data ) {}
 
 	function unhtmlspecialchars( $data )
 	{
