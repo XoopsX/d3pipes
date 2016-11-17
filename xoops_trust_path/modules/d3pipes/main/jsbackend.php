@@ -66,6 +66,8 @@ $xoopsTpl->assign(
 
 $html = addslashes( strtr( $xoopsTpl->fetch( 'db:'.$mydirname.'_main_jsbackend.html' ) , "\n\r" , "  " ) ) ;
 
+header( 'Content-type: text/javascript; charset: ' . _CHARSET ) ;
+
 echo "d3pipes_insert_html('{$mydirname}_async_block_{$unique_id}','$html');" ;
 
 exit ;
