@@ -14,7 +14,7 @@
 # and returns an equivalent PHP data structure
 ###################################################################################
 function & XML_unserialize(&$xml){
-	// 制御文字を除外する
+	// remove control characters
 	$xml = preg_replace('/[\x00-\x09\x0B\x0C\x0E-\x1F\x7F]/', '', $xml);
 	$xml_parser = new XML();
 	$data = &$xml_parser->parse($xml);
